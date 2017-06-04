@@ -19,15 +19,11 @@ obj-y								+= nxp-dfs-bclk.o
 #===============================================================================
 # Support prototype
 #===============================================================================
-PROTOTYPE := prototype
-MODULES	  := module
-BASEDIR	  := base
+obj-y += prototype/
 
-include $(srctree)/arch/arm/mach-s5p4418/$(PROTOTYPE).mk
-
-KBUILD_CFLAGS += -I$(srctree)/$(MACHINE)$(PROTOTYPE)/$(BASEDIR)	\
-				 -I$(srctree)/$(MACHINE)$(PROTOTYPE)/$(MODULES)	\
-				 -I$(srctree)/$(MACHINE)$(PROTOTYPE)/$(MODULES)
+KBUILD_CFLAGS += \
+		-I$(srctree)/$(MACHINE)prototype/base	\
+		-I$(srctree)/$(MACHINE)prototype/module
 
 ifeq ($(CONFIG_S5P4418_PROTO_RELEASE),y)
 KBUILD_CFLAGS += -D__LINUX__ -D__PRINTK__ -DNX_RELEASE
