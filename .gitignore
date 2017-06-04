@@ -60,9 +60,17 @@ modules.builtin
 # Generated include files
 #
 include/config
-include/linux/version.h
 include/generated
+include/linux/version.h
 arch/*/include/generated
+
+#
+# Generated out files
+#
+out/
+yantz/modules/
+yantz/modules.txt
+yantz/kernel/uImage*
 
 # stgit generated dirs
 patches-*
@@ -84,3 +92,12 @@ GTAGS
 *.orig
 *~
 \#*#
+
+#
+# Leavings from module signing
+#
+extra_certificates
+signing_key.priv
+signing_key.x509
+x509.genkey
+
